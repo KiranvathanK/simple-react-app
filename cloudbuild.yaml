@@ -5,8 +5,7 @@ steps:
     args:
       - -c
       - |
-        # Replace these values with your private Docker registry credentials
-        docker login -u mukeshravi -p Mkhsanjay@1997 YOUR_PRIVATE_REGISTRY_URL
+        docker login -u mukeshravi -p Mkhsanjay@1997 hub.docker.com/repository/docker/mukeshravi/datahub_images/
   - name: gcr.io/cloud-builders/docker
     entrypoint: bash
     args:
