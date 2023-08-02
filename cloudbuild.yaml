@@ -4,26 +4,29 @@ steps:
     entrypoint: bash
     args:
       - -c
-      - docker login --username=mukeshravi --password=Mkhsanjay@1997 
-    secretEnv:
-      - mukeshravi
-      - Mkhsanjay@1997
+      - |
+        # Replace these values with your private Docker registry credentials
+        docker login -u mukeshravi -p Mkhsanjay@1997 YOUR_PRIVATE_REGISTRY_URL
   - name: gcr.io/cloud-builders/docker
+    entrypoint: bash
     args:
-      - pull
-      - -t
-      - mukeshravi/datahub_images:fe_image_latest
-      - .
+      - -c
+      - |
+        docker pull hub.docker.com/repository/docker/mukeshravi/datahub_images/
   - name: gcr.io/cloud-builders/docker
+    entrypoint: bash
     args:
-      - push
-      - us-central1-docker.pkg.dev/nifty-vault-372307/gcf-artifacts/datahub-image
-availableSecrets:
-  secretManager:
-    - versionName: projects/nifty-vault-372307/secrets/mukeshravi/versions/1
-      env: mukeshravi
-    - versionName: projects/nifty-vault-372307/secrets/Mkhsanjay@1997/versions/1
-      env: Mkhsanjay@1997
+      - -c
+      - >
+        docker tag hub.docker.com/repository/docker/mukeshravi/datahub_images/
+        gcr.io/nifty-vault-372307/gcf-artifacts/datahub-image
+  - name: gcr.io/cloud-builders/docker
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        docker push gcr.io/nifty-vault-372307/gcf-artifacts/datahub-image
 options:
   logging: NONE
+
 
