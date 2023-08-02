@@ -1,31 +1,25 @@
 ---
 steps:
   - name: gcr.io/cloud-builders/docker
-    entrypoint: bash
     args:
-      - -c
-      - |
-        docker login -u mukeshravi -p Mkhsanjay@1997 hub.docker.com/repository/docker/mukeshravi/datahub_images/
+      - login
+      - -u
+      - mukeshravi
+      - -p
+      - Mkhsanjay@1997
+      - hub.docker.com/repository/docker/mukeshravi/datahub_images/
   - name: gcr.io/cloud-builders/docker
-    entrypoint: bash
     args:
-      - -c
-      - |
-        docker pull hub.docker.com/repository/docker/mukeshravi/datahub_images/
+      - pull
+      - hub.docker.com/repository/docker/mukeshravi/datahub_images/
   - name: gcr.io/cloud-builders/docker
-    entrypoint: bash
     args:
-      - -c
-      - >
-        docker tag hub.docker.com/repository/docker/mukeshravi/datahub_images/
-        gcr.io/nifty-vault-372307/gcf-artifacts/datahub-image
+      - tag
+      - hub.docker.com/repository/docker/mukeshravi/datahub_images/
+      - gcr.io/nifty-vault-372307/gcf-artifacts/datahub-image
   - name: gcr.io/cloud-builders/docker
-    entrypoint: bash
     args:
-      - -c
-      - |
-        docker push gcr.io/nifty-vault-372307/gcf-artifacts/datahub-image
+      - push
+      - gcr.io/nifty-vault-372307/gcf-artifacts/datahub-image
 options:
   logging: NONE
-
-
