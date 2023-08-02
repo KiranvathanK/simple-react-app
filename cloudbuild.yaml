@@ -1,25 +1,19 @@
----
 steps:
-  - name: gcr.io/cloud-builders/docker
-    args:
-      - login
-      - -u
-      - mukeshravi
-      - -p
-      - Mkhsanjay@1997
-      - hub.docker.com/repository/docker/mukeshravi/datahub_images/
-  - name: gcr.io/cloud-builders/docker
-    args:
-      - pull
-      - hub.docker.com/repository/docker/mukeshravi/datahub_images/
-  - name: gcr.io/cloud-builders/docker
-    args:
-      - tag
-      - hub.docker.com/repository/docker/mukeshravi/datahub_images/
-      - gcr.io/nifty-vault-372307/gcf-artifacts/datahub-image
-  - name: gcr.io/cloud-builders/docker
-    args:
-      - push
-      - gcr.io/nifty-vault-372307/gcf-artifacts/datahub-image
+  # Authenticate with your Docker private registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['login', '-u', 'mukeshravi', '-p', 'Mkhsanjay@1997', 'hub.docker.com/repository/docker/mukeshravi/datahub_images/']
+
+  # Pull the image from the private registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['pull', 'hub.docker.com/repository/docker/mukeshravi/datahub_images/']
+
+  # Tag the pulled image with GCR destination
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['tag', 'hub.docker.com/repository/docker/mukeshravi/datahub_images/', 'gcr.io/nifty-vault-372307/gcf-artifacts/datahub-image']
+
+  # Push the image to GCR
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/nifty-vault-372307/gcf-artifacts/datahub-image']        
+        
 options:
-  logging: NONE
+  logging: NONE 
