@@ -8,8 +8,8 @@ steps:
         echo "Mkhsanjay@1997" | docker login --username "mukeshravi"
         --password-stdin
     secretEnv:
-      - DOCKER_USERNAME
-      - DOCKER_PASSWORD
+      - mukeshravi
+      - Mkhsanjay@1997
   - name: gcr.io/cloud-builders/docker
     args:
       - pull
@@ -22,10 +22,10 @@ steps:
       - us-central1-docker.pkg.dev/nifty-vault-372307/gcf-artifacts/datahub-image
 availableSecrets:
   secretManager:
-    - versionName: projects/nifty-vault-372307/secrets/DOCKER_USERNAME/versions/1
-      env: DOCKER_USERNAME
-    - versionName: projects/nifty-vault-372307/secrets/DOCKER_PASSWORD/versions/1
-      env: DOCKER_PASSWORD
+    - versionName: projects/nifty-vault-372307/secrets/mukeshravi/versions/1
+      env: mukeshravi
+    - versionName: projects/nifty-vault-372307/secrets/Mkhsanjay@1997/versions/1
+      env: Mkhsanjay@1997
 options:
   logging: NONE
 
