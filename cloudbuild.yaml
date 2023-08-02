@@ -1,31 +1,28 @@
+---
 steps:
-  # Step 1: Authenticate with your private Docker registry
   - name: 'gcr.io/cloud-builders/docker'
     entrypoint: 'bash'
     args:
       - '-c'
-      - 'docker login -u mukeshravi -p Mkhsanjay@1997 hub.docker.com/repository/docker/mukeshravi/datahub_images/'
+      - |
+        echo "Mkhsanjay@1997" | docker login -u "mukeshravi" --password-stdin hub.docker.com/repository/docker/mukeshravi/datahub_images/
 
-  # Step 2: Pull the Docker image from the private registry
   - name: 'gcr.io/cloud-builders/docker'
     entrypoint: 'bash'
     args:
       - '-c'
       - 'docker pull hub.docker.com/repository/docker/mukeshravi/datahub_images/'
 
-  # Step 3: Tag the pulled image with GCR's destination
   - name: 'gcr.io/cloud-builders/docker'
     entrypoint: 'bash'
     args:
       - '-c'
       - 'docker tag hub.docker.com/repository/docker/mukeshravi/datahub_images/ gcr.io/nifty-vault-372307/gcf-artifacts/datahub-image'
 
-  # Step 5: Push the image to GCR
   - name: 'gcr.io/cloud-builders/docker'
     entrypoint: 'bash'
     args:
       - '-c'
       - 'docker push gcr.io/nifty-vault-372307/gcf-artifacts/datahub-image'
-
 options:
   logging: 'NONE'
