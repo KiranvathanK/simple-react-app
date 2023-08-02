@@ -4,7 +4,7 @@ steps:
     entrypoint: 'bash'
     args:
       - '-c'
-      - 'docker login -u "mukeshravi" -p "Mkhsanjay@1997" --password-stdin hub.docker.com/repository/docker/mukeshravi/datahub_images/'
+      - 'docker login -u "mukeshravi" -p "Mkhsanjay@1997"'
 
   - name: 'gcr.io/cloud-builders/docker'
     entrypoint: 'bash'
