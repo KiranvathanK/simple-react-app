@@ -9,6 +9,16 @@ steps:
     entrypoint: bash
     args:
       - -c
+      - docker pull mukeshravi/datahub_images:pgdb_image_latest
+  - name: gcr.io/cloud-builders/docker
+    entrypoint: bash
+    args:
+      - -c
+      - docker pull mukeshravi/datahub_images:be_image_latest
+  - name: gcr.io/cloud-builders/docker
+    entrypoint: bash
+    args:
+      - -c
       - docker pull mukeshravi/datahub_images:fe_image_latest
   - name: gcr.io/cloud-builders/docker
     args:
