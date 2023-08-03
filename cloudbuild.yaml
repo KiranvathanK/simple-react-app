@@ -32,7 +32,7 @@ steps:
     args:
       - -c
       - docker push
-        us-central1-docker.pkg.dev/nifty-vault-372307/gcf-artifacts/datahub-imag
+        us-central1-docker.pkg.dev/nifty-vault-372307/gcf-artifacts/datahub-image
   
 availableSecrets:
   secretManager:
