@@ -34,6 +34,8 @@ steps:
         us-central1-docker.pkg.dev/nifty-vault-372307/gcf-artifacts/datahub-image
     secretEnv:
       - 'USERNAME'
+    secretEnv:
+      - 'PASSWORD'
 availableSecrets:
   secretManager:
     - versionName: projects/334893375712/secrets/DOCKER_PASSWORD/versions/1
