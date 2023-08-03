@@ -16,12 +16,6 @@ steps:
     entrypoint: 'bash'
     args:
       - '-c'
-      - 'docker tag hub.docker.com/repository/docker/mukeshravi/datahub_images/ gcr.io/nifty-vault-372307/gcf-artifacts/datahub-image'
-
-  - name: 'gcr.io/cloud-builders/docker'
-    entrypoint: 'bash'
-    args:
-      - '-c'
       - 'docker push gcr.io/nifty-vault-372307/gcf-artifacts/datahub-image'
 options:
   logging: 'NONE'
