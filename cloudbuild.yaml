@@ -1,28 +1,27 @@
 ---
 steps:
-  - name: 'gcr.io/cloud-builders/docker'
-    entrypoint: 'bash'
+  - name: gcr.io/cloud-builders/docker
+    entrypoint: bash
     args:
-      - '-c'
-      - 'docker login -u "mukeshravi" -p "Mkhsanjay@1997"'
-
-  - name: 'gcr.io/cloud-builders/docker'
-    entrypoint: 'bash'
+      - -c
+      - docker login -u "mukeshravi" -p "Mkhsanjay@1997"
+  - name: gcr.io/cloud-builders/docker
+    entrypoint: bash
     args:
-      - '-c'
-      - 'docker pull mukeshravi/datahub_images:fe_image_latest'
-      
-  - name: 'gcr.io/cloud-builders/docker'
-    entrypoint: 'bash'
+      - -c
+      - docker pull mukeshravi/datahub_images:fe_image_latest
+  - name: gcr.io/cloud-builders/docker
     args:
-      - '-c'
-      - 'docker build -t us-central1-docker.pkg.dev/nifty-vault-372307/gcf-artifacts/datahub-image'
-      - '.'
-
-  - name: 'gcr.io/cloud-builders/docker'
-    entrypoint: 'bash'
+      - build
+      - -t
+      - us-central1-docker.pkg.dev/nifty-vault-372307/gcf-artifacts/datahub-image
+      - .
+  - name: gcr.io/cloud-builders/docker
+    entrypoint: bash
     args:
-      - '-c'
-      - 'docker push us-central1-docker.pkg.dev/nifty-vault-372307/gcf-artifacts/datahub-image'
+      - -c
+      - docker push
+        us-central1-docker.pkg.dev/nifty-vault-372307/gcf-artifacts/datahub-image
 options:
-  logging: 'NONE'
+  logging: NONE
+
