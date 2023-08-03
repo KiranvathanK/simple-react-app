@@ -15,7 +15,6 @@ steps:
     args:
       - -c
       - docker pull mukeshravi/datahub_images:be_image_latest
-    secretEnv: ['USERNAME','PASSWORD']
   - name: gcr.io/cloud-builders/docker
     entrypoint: bash
     args:
