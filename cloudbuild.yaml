@@ -4,7 +4,7 @@ steps:
     entrypoint: bash
     args:
       - -c
-      - docker login --username="$$USERNAME" --password="$$PASSWORD"
+      - docker login --username="$$DOCKER_USERNAME" --password="$$DOCKER_PASSWORD"
   - name: gcr.io/cloud-builders/docker
     entrypoint: bash
     args:
