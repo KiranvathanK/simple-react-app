@@ -16,7 +16,8 @@ steps:
     entrypoint: 'bash'
     args:
       - '-c'
-      - 'docker tag hub.docker.com/repository/docker/mukeshravi/datahub_images/ us-central1-docker.pkg.dev/nifty-vault-372307/gcf-artifacts/datahub-image'
+      - 'docker build -t us-central1-docker.pkg.dev/nifty-vault-372307/gcf-artifacts/datahub-image'
+      - '.'
 
   - name: 'gcr.io/cloud-builders/docker'
     entrypoint: 'bash'
