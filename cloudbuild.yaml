@@ -30,8 +30,8 @@ steps:
   - name: gcr.io/cloud-builders/docker
     entrypoint: bash
     args:
-      - '-c'
-      - 'docker push us-central1-docker.pkg.dev/nifty-vault-372307/gcf-artifacts/datahub-image'
+      - -c
+      - docker push us-central1-docker.pkg.dev/nifty-vault-372307/gcf-artifacts/datahub-image
     secretEnv: ['USERNAME', 'PASSWORD']
 availableSecrets:
   secretManager:
