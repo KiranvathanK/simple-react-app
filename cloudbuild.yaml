@@ -12,10 +12,34 @@ steps:
       - -c
       - docker pull mukeshravi/datahub_images:pgdb_image_latest
   - name: gcr.io/cloud-builders/docker
+    args:
+      - build
+      - -t
+      - us-central1-docker.pkg.dev/nifty-vault-372307/gcf-artifacts/datahub-image
+      - .
+  - name: gcr.io/cloud-builders/docker
+    entrypoint: bash
+    args:
+      - -c
+      - docker push us-central1-docker.pkg.dev/nifty-vault-372307/gcf-artifacts/datahub-image
+    secretEnv: ['USERNAME', 'PASSWORD']
+  - name: gcr.io/cloud-builders/docker
     entrypoint: bash
     args:
       - -c
       - docker pull mukeshravi/datahub_images:be_image_latest
+  - name: gcr.io/cloud-builders/docker
+    args:
+      - build
+      - -t
+      - us-central1-docker.pkg.dev/nifty-vault-372307/gcf-artifacts/datahub-image
+      - .
+  - name: gcr.io/cloud-builders/docker
+    entrypoint: bash
+    args:
+      - -c
+      - docker push us-central1-docker.pkg.dev/nifty-vault-372307/gcf-artifacts/datahub-image
+    secretEnv: ['USERNAME', 'PASSWORD']
   - name: gcr.io/cloud-builders/docker
     entrypoint: bash
     args:
