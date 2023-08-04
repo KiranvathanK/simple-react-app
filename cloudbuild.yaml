@@ -15,13 +15,13 @@ steps:
     args:
       - build
       - -t
-      - us-central1-docker.pkg.dev/nifty-vault-372307/gcf-artifacts/datahub-image
+      - us-central1-docker.pkg.dev/nifty-vault-372307/gcf-artifacts/pg_datahub-image
       - .
   - name: gcr.io/cloud-builders/docker
     entrypoint: bash
     args:
       - -c
-      - docker push us-central1-docker.pkg.dev/nifty-vault-372307/gcf-artifacts/datahub-image
+      - docker push us-central1-docker.pkg.dev/nifty-vault-372307/gcf-artifacts/pg_datahub-image
     secretEnv: ['USERNAME', 'PASSWORD']
   - name: gcr.io/cloud-builders/docker
     entrypoint: bash
@@ -32,13 +32,13 @@ steps:
     args:
       - build
       - -t
-      - us-central1-docker.pkg.dev/nifty-vault-372307/gcf-artifacts/datahub-image
+      - us-central1-docker.pkg.dev/nifty-vault-372307/gcf-artifacts/be_datahub-image
       - .
   - name: gcr.io/cloud-builders/docker
     entrypoint: bash
     args:
       - -c
-      - docker push us-central1-docker.pkg.dev/nifty-vault-372307/gcf-artifacts/datahub-image
+      - docker push us-central1-docker.pkg.dev/nifty-vault-372307/gcf-artifacts/be_datahub-image
     secretEnv: ['USERNAME', 'PASSWORD']
   - name: gcr.io/cloud-builders/docker
     entrypoint: bash
@@ -49,13 +49,13 @@ steps:
     args:
       - build
       - -t
-      - us-central1-docker.pkg.dev/nifty-vault-372307/gcf-artifacts/datahub-image
+      - us-central1-docker.pkg.dev/nifty-vault-372307/gcf-artifacts/fe_datahub-image
       - .
   - name: gcr.io/cloud-builders/docker
     entrypoint: bash
     args:
       - -c
-      - docker push us-central1-docker.pkg.dev/nifty-vault-372307/gcf-artifacts/datahub-image
+      - docker push us-central1-docker.pkg.dev/nifty-vault-372307/gcf-artifacts/fe_datahub-image
     secretEnv: ['USERNAME', 'PASSWORD']
 availableSecrets:
   secretManager:
