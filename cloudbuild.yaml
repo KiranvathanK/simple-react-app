@@ -62,13 +62,13 @@ steps:
     args:
       - '-c'
       - |
-        gcloud auth configure-docker;
-        docker pull gcr.io/nifty-vault-372307/gcf-artifacts/dc8de2930e93:latest;
-        docker tag gcr.io/nifty-vault-372307/gcf-artifacts/dc8de2930e93:latest frontend:latest;
-        docker save -o image.tar frontend:latest;
-        gcloud compute scp image.tar datahub-pvt-0:;
-        gcloud compute ssh datahub-pvt-0 --command='docker load -i image.tar';
-        gcloud compute ssh datahub-pvt-0 --command='docker run -d -p 80:80 frontend:latest';
+        gcloud auth configure-docker
+        docker pull gcr.io/us-central1-docker.pkg.dev/nifty-vault-372307/gcf-artifacts/dc8de2930e93:latest
+        docker tag gcr.io/us-central1-docker.pkg.dev/nifty-vault-372307/gcf-artifacts/dc8de2930e93:latest frontend:latest
+        docker save -o image.tar frontend:latest
+        gcloud compute scp image.tar datahub-pvt-0:~/
+        gcloud compute ssh datahub-pvt-0 --command "docker load -i image.tar"
+        gcloud compute ssh datahub-pvt-0 --command "docker run -d -p 80:80 frontend:latest"
 availableSecrets:
   secretManager:
   - versionName: projects/nifty-vault-372307/secrets/DOCKER_PASSWORD/versions/1
