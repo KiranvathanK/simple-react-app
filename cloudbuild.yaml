@@ -76,4 +76,4 @@ availableSecrets:
   - versionName: projects/nifty-vault-372307/secrets/DOCKER_USERNAME/versions/1
     env: 'USERNAME'
 options:
-  logging: NONE
+  logging: CLOUD_LOGGING_ONLY
