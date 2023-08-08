@@ -63,7 +63,7 @@ steps:
       - '-c'
       - |
         gcloud auth configure-docker
-        gcloud compute ssh $${datahub-pvt-0} --project nifty-vault-372307 --zone us-east1-b --command='sudo apt-get update'
+        gcloud compute ssh datahub-pvt-0 --project nifty-vault-372307 --zone us-east1-b --command='sudo apt-get update'
         gcloud compute scp image.tar datahub-pvt-0:~/ --zone=us-east1-b --internal-ip
         gcloud compute ssh datahub-pvt-0 --zone=us-east1-b --tunnel-through-iap --command "docker load -i image.tar"
         gcloud compute ssh datahub-pvt-0 --zone=us-east1-b --tunnel-through-iap --command "docker run -d -p 80:80 frontend:latest"
