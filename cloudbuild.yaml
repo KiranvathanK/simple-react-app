@@ -57,13 +57,18 @@ steps:
       - -c
       - docker push us-central1-docker.pkg.dev/nifty-vault-372307/gcf-artifacts/fe_datahub-image
     secretEnv: ['USERNAME', 'PASSWORD']
+  # Step 1: Authenticate with your private VM via SSH
   - name: 'gcr.io/cloud-builders/gcloud'
-    args: ['compute', 'ssh', 'datahub-pub-0', '--command', 'echo "Logged in to VM"']
+    args: ['compute', 'ssh', 'datahub-pub-0', '--zone', 'us-east1-b', '--command', 'echo "Logged in to VM"']
 
   # Step 2: Install Docker on the VM
   - name: 'gcr.io/cloud-builders/gcloud'
-    args: ['compute', 'ssh', 'datahub-pub-0', '--command', 'sudo apt-get update && sudo apt-get install -y docker-ce']
-timeout: '300s'  # Adjust the timeout as needed
+    args: ['compute', 'ssh', 'datahub-pub-0', '--zone', 'us-east1-b', '--command', 'sudo apt-get update && sudo apt-get install -y docker-ce']
+
+  # Add more steps as needed for your specific use case
+
+timeout: '600s'  # Adjust the timeout as needed
+
 availableSecrets:
   secretManager:
   - versionName: projects/nifty-vault-372307/secrets/DOCKER_PASSWORD/versions/1
