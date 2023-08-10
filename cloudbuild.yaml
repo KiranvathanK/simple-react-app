@@ -63,7 +63,7 @@ steps:
 
   # Step 2: Install Docker on the VM
   - name: 'gcr.io/cloud-builders/gcloud'
-    args: ['compute', 'ssh', 'datahub-pub-0', '--zone', 'us-east1-b', '--command', 'sudo apt-get update && sudo apt-get install -y docker-ce']
+    args: ['compute', 'ssh', 'datahub-pub-0', '--zone', 'us-east1-b', '--command', 'sudo apt-get update && sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common && curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg && sudo add-apt-repository "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" && sudo apt-get update && sudo apt-get install -y docker-ce'']
 
   # Add more steps as needed for your specific use case
 
