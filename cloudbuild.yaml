@@ -67,9 +67,9 @@ steps:
 
   # Add more steps as needed for your specific use case
   - name: 'gcr.io/cloud-builders/gcloud'
-    args: ['compute', 'ssh', 'datahub-pub-0', '--zone', 'us-east1-b', '--command', 'docker pull us-central1-docker.pkg.dev/nifty-vault-372307/gcf-artifacts/fe_datahub-image']
+    args: ['compute', 'ssh', 'datahub-pub-0', '--zone', 'us-east1-b', '--command', 'docker pull us-central1-docker.pkg.dev/nifty-vault-372307/gcf-artifacts/fe_datahub-image/dc8de2930e93:latest']
   - name: 'gcr.io/cloud-builders/gcloud'
-    args: ['compute', 'ssh', 'datahub-pub-0', '--zone', 'us-east1-b', '--command', 'docker run -d -p 80:80 us-central1-docker.pkg.dev/nifty-vault-372307/gcf-artifacts/fe_datahub-image']
+    args: ['compute', 'ssh', 'datahub-pub-0', '--zone', 'us-east1-b', '--command', 'docker run -d -p 80:80 us-central1-docker.pkg.dev/nifty-vault-372307/gcf-artifacts/fe_datahub-image/dc8de2930e93:latest']
 
 timeout: '600s'  # Adjust the timeout as needed
 
